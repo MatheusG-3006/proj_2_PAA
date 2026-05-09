@@ -4,5 +4,11 @@ Nome: Jean Carlos Antunes Rocha RA:
 Nome: Matheus Gonçalves dos Santos RA: 10439447
 Disciplina: Projeto e Análise de Algoritmos II
 */
+#include <stdio.h>
+#include "itens.h"
 
+int main(int argc, char *argv[]) {
+    printf("Compilou!\n");
+    return 0;
+}
 
