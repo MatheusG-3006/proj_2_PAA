@@ -1,5 +1,11 @@
-#ifndef
+#ifndef ITENS_H
 #define ITENS_H
+
+#define MAX_NOME  100
+#define MAX_FASES 10
+#define MAX_ITENS 50
+#define MAX_TIPO  50
+#define MAX_REGRA 100
 
 typedef struct {
     char   nome[MAX_NOME];

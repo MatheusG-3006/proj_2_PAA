@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -Wall -I.
 TARGET = meu_programa
-OBJS = main.o utils.o
+OBJS = jogo_aventura.o itens.o
 
 # Regra padrão
 all: $(TARGET)

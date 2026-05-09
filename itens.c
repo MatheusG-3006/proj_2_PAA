@@ -40,14 +40,9 @@ void mergeSort(Item itens[], int esq, int dir){
 
 // Entrada de Arquivo 
 int lerFase(const char *nomeArquivo, Fase fases[], int maxFases){
-    FILE *f = fopen(nomeArquivo "r"); 
-
+    FILE *f = fopen(nomeArquivo, "r");     
     if(!f){
         fprintf(stderr, "Não foi possível abrir o arquivo '%s'.\n",nomeArquivo);
-        return -1
+        return -1;
     }
-
-    char linha[512]; 
-    int numeroFases = -1; 
-
-} 
+}
