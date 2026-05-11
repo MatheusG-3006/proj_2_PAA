@@ -1,20 +1,16 @@
 CC = gcc
-CFLAGS = -Wall -I.
-TARGET = meu_programa
-OBJS = jogo_aventura.o itens.o
 
-# Regra padrão
-all: $(TARGET)
+CFLAGS = -Wall -Wextra
 
-# Vincula os objetos para criar o executável
-$(TARGET): $(OBJS)
-	$(CC) -o $(TARGET) $(OBJS)
+EXEC = jogo
 
-# Regra genérica para compilar .c em .o
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+SRC = jogo_aventura.c arquivo.c merge.c guloso.c
 
-# Limpeza de arquivos gerados
-.PHONY: clean
+all:
+	$(CC) $(SRC) -o $(EXEC) $(CFLAGS)
+
+run:
+	./$(EXEC) entrada.txt saida.txt
+
 clean:
-	rm -f $(OBJS) $(TARGET)   
+	rm -f $(EXEC)
