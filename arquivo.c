@@ -63,31 +63,20 @@ int lerFases(FILE *file, Fase *fases) {
       sscanf_s(line, "REGRA: %s", fases[numFases].regra);
     } else if (strncmp(line, "ITEM:", 5) == 0) {
       Item item;
+      memset(&item, 0, sizeof(Item));
       
-      char *start = strchr(line, ':') + 2;
-      char *comma1 = strchr(start, ',');
-      char *comma2 = strchr(comma1 + 1, ',');
-      char *comma3 = strchr(comma2 + 1, ',');
-
-      int size_last = sizeof(comma3);
+      // Parse: ITEM: Nome, peso, valor, tipo
+      char tempTipo[MAX_TIPO];
+      int matched = sscanf_s(line, "ITEM: %99[^,], %lf, %lf, %s", 
+                             item.nome, 100, &item.peso, &item.valor, tempTipo, MAX_TIPO);
       
-      if (comma1 && comma2 && comma3) {
-          strncpy(item.nome, start, comma1 - start);
-          item.nome[comma1 - start] = '\0';
-          int size = comma3 - comma2;
-          char valor[300];
-          strncpy(valor, comma2 + 2, size - 2);
-          sscanf_s(comma1 + 1, "%lf", &item.peso);
-          //sscanf_s(comma2 + 1, "%lf", &item.valor);
-          item.valor = atof(valor);
-          item.valorAjust = atof(valor);
-          sscanf_s(comma3, "%s", item.tipo);
-          strncpy(item.tipo, comma3 + 2, size_last + 8);
-          //printf("%s\n", item.tipo);
-          fases[numFases].itens[itemCount] = item;
+      if (matched == 4) {
+          item.valorAjust = item.valor;
+          strncpy(item.tipo, tempTipo, MAX_TIPO - 1);
+          item.tipo[MAX_TIPO - 1] = '\0';
           
-        itemCount++;
-        //fases[numFases].numeroItens = itemCount;
+          fases[numFases].itens[itemCount] = item;
+          itemCount++;
       }
     }
   }
