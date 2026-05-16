@@ -1,8 +1,8 @@
-#ifndef ARQUIVO_H
-#define ARQUIVO_H
+#pragma once
 
+#include <stdio.h>
 #include "itens.h"
 
-int lerFases(const char *nomeArquivo, Fase fases[]);
-
-#endif
+int lerFases(FILE * file, Fase fases[]);
+void numItem(FILE * file, Fase *fases);
+int numFases(FILE * file);

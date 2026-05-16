@@ -1,9 +1,9 @@
-#ifndef GULOSO_H
-#define GULOSO_H
+#pragma once
+
 
 #include <stdio.h>
 #include "itens.h"
 
 double resolverFase(Fase fase, FILE *saida);
 
-#endif
+void aplicarRegra(Fase *fase);

@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra
 
 EXEC = jogo
 
-SRC = jogo_aventura.c arquivo.c merge.c guloso.c
+SRC = main.c arquivo.c merge.c guloso.c
 
 all:
 	$(CC) $(SRC) -o $(EXEC) $(CFLAGS)

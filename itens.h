@@ -1,7 +1,4 @@
-#ifndef ITENS_H
-#define ITENS_H
-
-#include "guloso.h"
+#pragma once
 
 #define MAX_NOME 100
 #define MAX_FASES 10
@@ -30,6 +27,4 @@ typedef struct {
 
 void mergeSort(Item itens[], int esq, int dir);
 
-double resolverFase(Fase fase, FILE *saida);
-
-#endif
+//double resolverFase(Fase fase, FILE *saida);
