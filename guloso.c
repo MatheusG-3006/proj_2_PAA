@@ -7,7 +7,7 @@
 void aplicarRegra(Fase *fase){
 
     for(int i = 0; i < fase->numeroItens; i++){
-
+        fase->itens[i].inteiro = 0;
         if(strcmp(fase->regra,
                   "MAGICOS_VALOR_DOBRADO") == 0){
 

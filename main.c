@@ -21,14 +21,14 @@ int main(int argc, char *argv[]) {
     numItem(input, fase);
     lerFases(input, fase);
     /*
-    */
     for (int i = 0; i < num; i++) {
         for(int j=0; j < fase[i].numeroItens; j++)
         {
-            printf("%f\n", fase[i].itens[j].valor);
+            printf("Nome: %s, Preço: %.2lf, Categoria: %s\n", fase[i].itens[j].nome, fase[i].itens[j].valor, fase[i].itens[j].tipo);
         }
     }
     
+    */
     FILE *output;
     fopen_s(&output, "saida.txt", "w");
     for (int i = 0; i < num; i++) {

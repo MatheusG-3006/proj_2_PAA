@@ -53,7 +53,6 @@ int lerFases(FILE *file, Fase *fases) {
     // Queria que switch case funcionasse para string em c
     if (strncmp(line, "FASE:", 5) == 0) {
      
-    printf("test\n");
     numFases++;
       sscanf_s(line, "FASE: %s", fases[numFases].nome);
       itemCount = 0;
@@ -69,6 +68,8 @@ int lerFases(FILE *file, Fase *fases) {
       char *comma1 = strchr(start, ',');
       char *comma2 = strchr(comma1 + 1, ',');
       char *comma3 = strchr(comma2 + 1, ',');
+
+      int size_last = sizeof(comma3);
       
       if (comma1 && comma2 && comma3) {
           strncpy(item.nome, start, comma1 - start);
@@ -80,8 +81,9 @@ int lerFases(FILE *file, Fase *fases) {
           //sscanf_s(comma2 + 1, "%lf", &item.valor);
           item.valor = atof(valor);
           item.valorAjust = atof(valor);
-          //printf("%f\n", item.valorAjust);
-          sscanf_s(comma3 + 1, "%s", item.tipo);
+          sscanf_s(comma3, "%s", item.tipo);
+          strncpy(item.tipo, comma3 + 2, size_last + 8);
+          //printf("%s\n", item.tipo);
           fases[numFases].itens[itemCount] = item;
           
         itemCount++;

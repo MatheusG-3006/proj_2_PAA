@@ -13,7 +13,7 @@ typedef struct {
     char tipo[MAX_TIPO];
 
     double valorAjust;
-    int inteiro;
+    int inteiro ;
 } Item;
 
 typedef struct {
